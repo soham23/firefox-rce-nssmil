@@ -92,6 +92,8 @@ Documentation describing the vulnerability, repository purpose, and usage.
 
 No compatibility with newer Firefox releases is expected.
 
+![Firefox Version](https://raw.githubusercontent.com/soham23/firefox-rce-nssmil/refs/heads/master/docs/screenshots/firefox-version.png)
+
 ---
 
 ## Running the Proof of Concept
@@ -119,6 +121,11 @@ http://<server-ip>:8000/index.html
 from the vulnerable Firefox instance.
 
 ---
+
+## Exploit Demonstration
+![Exploit](https://raw.githubusercontent.com/soham23/firefox-rce-nssmil/refs/heads/master/docs/screenshots/exploit-running.png)
+
+**Note** - You may have to try the exploit multiple times.
 
 ## Limitations
 
